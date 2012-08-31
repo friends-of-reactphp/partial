@@ -1,6 +1,6 @@
 {
     "name": "react/curry",
-    "description": "Currying.",
+    "description": "Partial function application.",
     "keywords": ["curry", "currying", "functional-programming"],
     "license": "MIT",
     "require": {
