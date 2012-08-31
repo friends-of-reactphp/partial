@@ -1,0 +1,12 @@
+{
+    "name": "react/curry",
+    "description": "Currying.",
+    "keywords": ["curry", "currying", "functional-programming"],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "autoload": {
+        "psr-0": { "React\\Curry": "src" }
+    }
+}
