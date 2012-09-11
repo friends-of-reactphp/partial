@@ -27,7 +27,7 @@ class UtilTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(6, $addOneAndFive());
     }
 
-    public function createAddFunction()
+    private function createAddFunction()
     {
         return function ($a, $b) {
             return $a + $b;
