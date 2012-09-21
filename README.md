@@ -45,6 +45,5 @@ MIT, see LICENSE.
 
 ## Credits
 
-Thank you, Moses Schönfinkel (1889-1942).
-
-Thank you, Haskell B. Curry (1900-1982).
+* Thank you, Moses Schönfinkel (1889-1942).
+* Thank you, Haskell B. Curry (1900-1982).
