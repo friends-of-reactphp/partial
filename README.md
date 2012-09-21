@@ -42,3 +42,7 @@ To run the test suite, you need PHPUnit.
 ## License
 
 MIT, see LICENSE.
+
+## Credits
+
+Thank you, Moses Schönfinkel (1889-1942).
