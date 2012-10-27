@@ -2,7 +2,7 @@
 
 Partial function application.
 
-[![Build Status](https://secure.travis-ci.org/reactphp/curry.png?branch=master)](http://travis-ci.org/react-php/curry)
+[![Build Status](https://secure.travis-ci.org/reactphp/curry.png?branch=master)](http://travis-ci.org/reactphp/curry)
 
 ## Install
 
