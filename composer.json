@@ -8,5 +8,10 @@
     },
     "autoload": {
         "psr-0": { "React\\Curry": "src" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
     }
 }

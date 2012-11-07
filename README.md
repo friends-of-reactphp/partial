@@ -11,7 +11,7 @@ The recommended way to install react/curry is [through composer](http://getcompo
 ```JSON
 {
     "require": {
-        "react/curry": "dev-master"
+        "react/curry": "1.0.*"
     }
 }
 ```
