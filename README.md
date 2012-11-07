@@ -16,6 +16,88 @@ The recommended way to install react/curry is [through composer](http://getcompo
 }
 ```
 
+## Concept
+
+> Partial application (or partial function application) refers to the process
+> of fixing a number of arguments to a function, producing another function of
+> smaller arity. Given a function `f:(X x Y x Z) -> N`, we might fix (or
+> 'bind') the first argument, producing a function of type `f:(Y x Z) -> N`.
+> Evaluation of this function might be represented as `f partial(2, 3)`.
+> Note that the result of partial function application in this case is a
+> function that takes two arguments.
+
+Basically, what this allows you to do is pre-fill arguments of a function,
+which is particularly useful if you don't have control over the function
+caller.
+
+Let's say you have an async operation which takes a callback. How about a file
+download. The callback is called with a single argument: The contents of the
+file. Let's also say that you have a function that you want to be called once
+that file download completes. This function however needs to know an
+additional piece of information: the filename.
+
+```php
+<?php
+
+public function handleDownload($filename)
+{
+    $this->downloadFile($filename, ...);
+}
+
+public function downloadFile($filename, $callback)
+{
+    $contents = get the darn file asynchronously...
+    $callback($contents);
+}
+
+public function processDownloadResult($filename, $contents)
+{
+    echo "The file $filename contained a shitload of stuff:\n";
+    echo $contents;
+}
+```
+
+The conventional approach to this problem is to wrap everything in a closure
+like so:
+
+```php
+<?php
+
+public function handleDownload($filename)
+{
+    $this->downloadFile($filename, function ($contents) use ($filename) {
+        $this->processDownloadResult($filename, $contents);
+    });
+}
+```
+
+This is not too bad, especially with PHP 5.4, but with 5.3 you need to do the
+annoying `$that = $this` dance, and in general it's a lot of verbose
+boilerplate that you don't really want to litter your code with.
+
+This is where currying (technically it's not exactly currying, but I will use
+the term currying interchangeably because "partial function application" is
+way too long to type out every single time) can help. Since we want to pre-
+fill an argument to the function that will be called, we just call `bind`,
+which will insert it to the left of the arguments list. The return value of
+`bind` is a new function which takes one `$content` argument.
+
+```php
+<?php
+
+use React\Curry\Util as Curry;
+
+public function handleDownload($filename)
+{
+    $this->downloadFile($filename, Curry::bind([$this, 'processDownloadResult'], $filename));
+}
+```
+
+This is way cleaner. Sure, it's still a bit ugly due to the weird `::` and
+`[$this, ...]` and so on, but it already helps quite a lot.
+
+Currying is dependency injection for functions! How awesome is that?
+
 ## Example
 
 ```php
