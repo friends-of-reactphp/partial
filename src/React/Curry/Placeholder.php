@@ -10,7 +10,7 @@ final class Placeholder
     {
     }
 
-    public function create()
+    public static function create()
     {
         if (self::$instance === null) {
             self::$instance = new self();
