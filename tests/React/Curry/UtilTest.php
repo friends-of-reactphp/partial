@@ -3,7 +3,6 @@
 namespace React\Curry;
 
 use React\Curry\Util as Curry;
-use React\Curry\Util\PLACEHOLDER as …;
 
 class UtilTest extends \PHPUnit_Framework_TestCase
 {
