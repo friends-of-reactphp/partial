@@ -10,7 +10,7 @@ function bind(/*$fn, $args...*/)
     $fn = array_shift($args);
 
     return function () use ($fn, $args) {
-        return call_user_func_array($fn, Util::mergeParameters($args, func_get_args()));
+        return call_user_func_array($fn, mergeParameters($args, func_get_args()));
     };
 }
 
@@ -22,4 +22,15 @@ function …()
 function placeholder()
 {
     return …();
+}
+
+function mergeParameters(array $left, array $right)
+{
+    foreach ($left as $position => &$param) {
+        if ($param instanceof Placeholder) {
+            $param = $param->resolve($right, $position);
+        }
+    }
+
+    return array_merge($left, $right);
 }
