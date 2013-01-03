@@ -4,16 +4,6 @@ namespace React\Curry;
 
 final class Util
 {
-    public static function …()
-    {
-        return …();
-    }
-
-    public static function placeholder()
-    {
-        return …();
-    }
-
     public static function bind(/*$fn, $args...*/)
     {
         $args = func_get_args();
