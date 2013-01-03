@@ -45,6 +45,14 @@ class BindTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(48, $prodTwo(3, 8));
     }
 
+    public function testPlaceholderParameterPosition()
+    {
+        $substr = bind('substr', …(), 0, …());
+        $this->assertSame('foo', $substr('foo', 3));
+        $this->assertSame('fo', $substr('foo', 2));
+        $this->assertSame('f', $substr('foo', 1));
+    }
+
     /**
      * @expectedException InvalidArgumentException
      * @expectedExceptionMessage Cannot resolve parameter placeholder at position 0. Parameter stack is empty
