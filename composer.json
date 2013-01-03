@@ -8,7 +8,7 @@
     },
     "autoload": {
         "psr-0": { "React\\Curry": "src" },
-        "files": ["src/functions.php"]
+        "files": ["src/React/Curry/functions.php"]
     },
     "extra": {
         "branch-alias": {
