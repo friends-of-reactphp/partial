@@ -24,6 +24,7 @@ function placeholder()
     return …();
 }
 
+/** @internal */
 function mergeParameters(array $left, array $right)
 {
     foreach ($left as $position => &$param) {
