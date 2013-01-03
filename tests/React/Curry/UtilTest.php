@@ -58,6 +58,11 @@ class UtilTest extends \PHPUnit_Framework_TestCase
         $addTwo();
     }
 
+    public function testAliasForUnicodePlaceholderFunction()
+    {
+        $this->assertSame(Curry::…(), Curry::placeholder());
+    }
+
     private function createAddFunction()
     {
         return function ($a, $b) {

@@ -9,6 +9,11 @@ final class Util
         return Placeholder::create();
     }
 
+    public static function placeholder()
+    {
+        return self::…();
+    }
+
     public static function bind(/*$fn, $args...*/)
     {
         $args = func_get_args();
