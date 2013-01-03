@@ -2,7 +2,7 @@
 
 namespace React\Curry;
 
-class Util
+final class Util
 {
     public static function …()
     {
