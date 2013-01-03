@@ -11,7 +11,7 @@ The recommended way to install react/curry is [through composer](http://getcompo
 ```JSON
 {
     "require": {
-        "react/curry": "1.0.*"
+        "react/curry": "~1.0"
     }
 }
 ```
@@ -89,7 +89,7 @@ use React\Curry\Util as Curry;
 
 public function handleDownload($filename)
 {
-    $this->downloadFile($filename, Curry::bind([$this, 'processDownloadResult'], $filename));
+    $this->downloadFile($filename, Curry\bind([$this, 'processDownloadResult'], $filename));
 }
 ```
 
@@ -109,7 +109,7 @@ $add = function ($a, $b) {
     return $a + $b;
 };
 
-$addOne = Curry::bind($add, 1);
+$addOne = Curry\bind($add, 1);
 
 echo sprintf("%s\n", $addOne(5));
 // outputs 6

@@ -19,9 +19,7 @@ final class Util
         $args = func_get_args();
         $fn = array_shift($args);
 
-        return function () use ($fn, $args) {
-            return call_user_func_array($fn, Util::mergeParameters($args, func_get_args()));
-        };
+        return call_user_func_array('React\Curry\bind', func_get_args());
     }
 
     public static function mergeParameters(array $left, array $right)
