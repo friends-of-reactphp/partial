@@ -85,7 +85,7 @@ which will insert it to the left of the arguments list. The return value of
 ```php
 <?php
 
-use React\Curry\Util as Curry;
+use React\Curry;
 
 public function handleDownload($filename)
 {
@@ -103,7 +103,7 @@ Currying is dependency injection for functions! How awesome is that?
 ```php
 <?php
 
-use React\Curry\Util as Curry;
+use React\Curry;
 
 $add = function ($a, $b) {
     return $a + $b;
