@@ -45,15 +45,15 @@ class BindTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(48, $prodTwo(3, 8));
     }
 
+    /**
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage Cannot resolve parameter placeholder at position 0. Parameter stack is empty
+     */
     public function testStringConversion()
     {
         $add = $this->createAddFunction();
         $addTwo = bind($add, …(), 2);
 
-        $this->setExpectedException(
-            'InvalidArgumentException',
-            'Cannot resolve parameter placeholder at position 0. Parameter stack is empty'
-        );
         $addTwo();
     }
 
