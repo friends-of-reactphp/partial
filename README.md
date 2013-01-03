@@ -98,7 +98,9 @@ This is way cleaner. Sure, it's still a bit ugly due to the weird `::` and
 
 Currying is dependency injection for functions! How awesome is that?
 
-## Example
+## Examples
+
+### bind
 
 ```php
 <?php
@@ -113,6 +115,30 @@ $addOne = Curry\bind($add, 1);
 
 echo sprintf("%s\n", $addOne(5));
 // outputs 6
+```
+
+### placeholder
+
+It is possible to use the `…` function (there is an alias called
+`placeholder`) to skip some arguments when partially applying.
+
+This allows you to pre-define arguments on the right, and have the left ones
+bound at call time.
+
+This example skips the first argument and sets the second and third arguments
+to `0` and `1` respectively. The result is a function that returns the first
+character of a string.
+
+```php
+<?php
+
+use React\Curry;
+
+$firstChar = Curry\bind('substr', Curry\…(), 0, 1);
+$mapped = array_map($firstChar, array('foo', 'bar', 'baz'));
+
+var_dump($mapped);
+// outputs ['f', 'b', 'b']
 ```
 
 ## Tests
