@@ -6,12 +6,12 @@ final class Util
 {
     public static function …()
     {
-        return Placeholder::create();
+        return …();
     }
 
     public static function placeholder()
     {
-        return self::…();
+        return …();
     }
 
     public static function bind(/*$fn, $args...*/)
