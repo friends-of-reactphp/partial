@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+* 1.1.1 (2013-01-04)
+
+  * Remove `declare` statement, as it can cause notices when zend multibyte is disabled
+
 * 1.1.0 (2013-01-03)
 
   * Switch to function-based API (BC is provided)
