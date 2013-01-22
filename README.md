@@ -133,7 +133,7 @@ character of a string.
 
  - Windows: `ALT + 2026`
  - Mac: `ALT + .`
- - Linux: `CTRL + SHIFT + U` than `8230`
+ - Linux: `AltGr + .`
 
 ```php
 <?php
