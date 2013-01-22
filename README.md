@@ -131,9 +131,9 @@ character of a string.
 
 **Note**: Usually your IDE should help but accessing the "…"-character (HORIZONTAL ELLIPSIS, U+2026) differs on various platforms.
 
- - Windows: `ALT + 2026`
+ - Windows: `ALT + 0133`
  - Mac: `ALT + .`
- - Linux: `CTRL + SHIFT + U` than `8230`
+ - Linux: `AltGr + .`
 
 ```php
 <?php
