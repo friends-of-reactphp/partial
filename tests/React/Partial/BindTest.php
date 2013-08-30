@@ -1,6 +1,6 @@
 <?php
 
-namespace React\Curry;
+namespace React\Partial;
 
 class BindTest extends \PHPUnit_Framework_TestCase
 {

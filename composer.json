@@ -1,14 +1,14 @@
 {
-    "name": "react/curry",
+    "name": "react/partial",
     "description": "Partial function application.",
-    "keywords": ["curry", "currying", "functional-programming"],
+    "keywords": ["partial", "functional-programming"],
     "license": "MIT",
     "require": {
         "php": ">=5.3.2"
     },
     "autoload": {
-        "psr-0": { "React\\Curry": "src" },
-        "files": ["src/React/Curry/functions.php"]
+        "psr-0": { "React\\Partial": "src" },
+        "files": ["src/React/Partial/functions.php"]
     },
     "extra": {
         "branch-alias": {

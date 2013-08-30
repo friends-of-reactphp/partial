@@ -1,8 +1,8 @@
 <?php
 
-namespace React\Curry;
+namespace React\Partial;
 
-use React\Curry\Placeholder;
+use React\Partial\Placeholder;
 
 function bind(/*$fn, $args...*/)
 {

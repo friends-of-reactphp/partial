@@ -1,15 +1,15 @@
 <?php
 
-namespace React\Curry;
+namespace React\Partial;
 
-use React\Curry\Util as Curry;
+use React\Partial\Util as Partial;
 
 class UtilTest extends \PHPUnit_Framework_TestCase
 {
     public function testBindWithTwoArgs()
     {
         $add = $this->createAddFunction();
-        $addOneAndFive = Curry::bind($add, 1, 5);
+        $addOneAndFive = Partial::bind($add, 1, 5);
         $this->assertSame(6, $addOneAndFive());
     }
 

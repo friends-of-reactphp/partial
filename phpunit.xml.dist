@@ -12,7 +12,7 @@
          bootstrap="vendor/autoload.php"
 >
     <testsuites>
-        <testsuite name="React/Curry Test Suite">
+        <testsuite name="React/Partial Test Suite">
             <directory>./tests/React/</directory>
         </testsuite>
     </testsuites>

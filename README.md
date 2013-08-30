@@ -1,17 +1,17 @@
-# React/Curry
+# React/Partial
 
 Partial function application.
 
-[![Build Status](https://secure.travis-ci.org/reactphp/curry.png?branch=master)](http://travis-ci.org/reactphp/curry)
+[![Build Status](https://secure.travis-ci.org/reactphp/partial.png?branch=master)](http://travis-ci.org/reactphp/partial)
 
 ## Install
 
-The recommended way to install react/curry is [through composer](http://getcomposer.org).
+The recommended way to install react/partial is [through composer](http://getcomposer.org).
 
 ```JSON
 {
     "require": {
-        "react/curry": "~1.0"
+        "react/partial": "~1.0"
     }
 }
 ```
@@ -85,18 +85,18 @@ which will insert it to the left of the arguments list. The return value of
 ```php
 <?php
 
-use React\Curry;
+use React\Partial;
 
 public function handleDownload($filename)
 {
-    $this->downloadFile($filename, Curry\bind([$this, 'processDownloadResult'], $filename));
+    $this->downloadFile($filename, Partial\bind([$this, 'processDownloadResult'], $filename));
 }
 ```
 
 This is way cleaner. Sure, it's still a bit ugly due to the weird `::` and
 `[$this, ...]` and so on, but it already helps quite a lot.
 
-Currying is dependency injection for functions! How awesome is that?
+Partialing is dependency injection for functions! How awesome is that?
 
 ## Examples
 
@@ -105,13 +105,13 @@ Currying is dependency injection for functions! How awesome is that?
 ```php
 <?php
 
-use React\Curry;
+use React\Partial;
 
 $add = function ($a, $b) {
     return $a + $b;
 };
 
-$addOne = Curry\bind($add, 1);
+$addOne = Partial\bind($add, 1);
 
 echo sprintf("%s\n", $addOne(5));
 // outputs 6
@@ -138,9 +138,9 @@ character of a string.
 ```php
 <?php
 
-use React\Curry;
+use React\Partial;
 
-$firstChar = Curry\bind('substr', Curry\…(), 0, 1);
+$firstChar = Partial\bind('substr', Partial\…(), 0, 1);
 $mapped = array_map($firstChar, array('foo', 'bar', 'baz'));
 
 var_dump($mapped);
@@ -160,4 +160,4 @@ MIT, see LICENSE.
 ## Credits
 
 * Thank you, Moses Schönfinkel (1889-1942).
-* Thank you, Haskell B. Curry (1900-1982).
+* Thank you, Haskell B. Partial (1900-1982).

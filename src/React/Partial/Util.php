@@ -1,6 +1,6 @@
 <?php
 
-namespace React\Curry;
+namespace React\Partial;
 
 final class Util
 {
@@ -9,6 +9,6 @@ final class Util
         $args = func_get_args();
         $fn = array_shift($args);
 
-        return call_user_func_array('React\Curry\bind', func_get_args());
+        return call_user_func_array('React\Partial\bind', func_get_args());
     }
 }

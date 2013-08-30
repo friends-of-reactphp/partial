@@ -1,6 +1,6 @@
 <?php
 
-namespace React\Curry;
+namespace React\Partial;
 
 final class Placeholder
 {
