@@ -75,12 +75,10 @@ This is not too bad, especially with PHP 5.4, but with 5.3 you need to do the
 annoying `$that = $this` dance, and in general it's a lot of verbose
 boilerplate that you don't really want to litter your code with.
 
-This is where currying (technically it's not exactly currying, but I will use
-the term currying interchangeably because "partial function application" is
-way too long to type out every single time) can help. Since we want to pre-
-fill an argument to the function that will be called, we just call `bind`,
-which will insert it to the left of the arguments list. The return value of
-`bind` is a new function which takes one `$content` argument.
+This is where partial application can help. Since we want to pre-fill an
+argument to the function that will be called, we just call `bind`, which will
+insert it to the left of the arguments list. The return value of `bind` is a
+new function which takes one `$content` argument.
 
 ```php
 <?php
@@ -156,8 +154,3 @@ To run the test suite, you need PHPUnit.
 ## License
 
 MIT, see LICENSE.
-
-## Credits
-
-* Thank you, Moses Schönfinkel (1889-1942).
-* Thank you, Haskell B. Partial (1900-1982).
