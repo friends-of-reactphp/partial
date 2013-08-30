@@ -127,7 +127,8 @@ This example skips the first argument and sets the second and third arguments
 to `0` and `1` respectively. The result is a function that returns the first
 character of a string.
 
-**Note**: Usually your IDE should help but accessing the "…"-character (HORIZONTAL ELLIPSIS, U+2026) differs on various platforms.
+**Note:** Usually your IDE should help but accessing the "…"-character
+(HORIZONTAL ELLIPSIS, U+2026) differs on various platforms.
 
  - Windows: `ALT + 0133`
  - Mac: `ALT + .`
