@@ -11,7 +11,7 @@ The recommended way to install react/partial is [through composer](http://getcom
 ```JSON
 {
     "require": {
-        "react/partial": "~1.0"
+        "react/partial": "~1.2"
     }
 }
 ```
