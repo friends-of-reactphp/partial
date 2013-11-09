@@ -131,7 +131,7 @@ character of a string.
 (HORIZONTAL ELLIPSIS, U+2026) differs on various platforms.
 
  - Windows: `ALT + 0133`
- - Mac: `ALT + .`
+ - Mac: `ALT + ;` or `ALT + .`
  - Linux: `AltGr + .`
 
 ```php
