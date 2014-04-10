@@ -4,7 +4,7 @@ namespace React\Partial;
 
 final class Placeholder
 {
-    private static $instance;
+    private static $instance = null;
 
     private function __construct()
     {
@@ -23,7 +23,7 @@ final class Placeholder
     {
         if (count($args) === 0) {
             throw new \InvalidArgumentException(
-                sprintf('Cannot resolve parameter placeholder at position %d. Parameter stack is empty', $position)
+                sprintf('Cannot resolve parameter placeholder at position %d. Parameter stack is empty.', $position)
             );
         }
 
