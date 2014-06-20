@@ -14,11 +14,17 @@ function bind(/*$fn, $args...*/)
     };
 }
 
+/**
+ * @return Partial
+ */
 function …()
 {
     return Placeholder::create();
 }
 
+/**
+ * @return Partial
+ */
 function placeholder()
 {
     return …();
