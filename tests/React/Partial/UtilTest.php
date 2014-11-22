@@ -6,17 +6,24 @@ use React\Partial\Util as Partial;
 
 class UtilTest extends \PHPUnit_Framework_TestCase
 {
-    public function testBindWithTwoArgs()
+    public function testBind()
     {
-        $add = $this->createAddFunction();
-        $addOneAndFive = Partial::bind($add, 1, 5);
-        $this->assertSame(6, $addOneAndFive());
+        $div = $this->createDivFunction();
+        $divFun = Partial::bind($div, 10, 5);
+        $this->assertSame(0.02, $divFun(100));
     }
 
-    private function createAddFunction()
+    public function testBindRight()
     {
-        return function ($a, $b) {
-            return $a + $b;
+        $div = $this->createDivFunction();
+        $divFun = Partial::bindRight($div, 10, 5);
+        $this->assertSame(2, $divFun(100));
+    }
+
+    private function createDivFunction()
+    {
+        return function ($a, $b, $c) {
+            return $a / $b / $c;
         };
     }
 }

@@ -111,8 +111,25 @@ $add = function ($a, $b) {
 
 $addOne = Partial\bind($add, 1);
 
-echo sprintf("%s\n", $addOne(5));
+echo sprintf("%d\n", $addOne(5));
 // outputs 6
+```
+
+### bind_right
+
+```php
+<?php
+
+use React\Partial;
+
+$div = function ($a, $b, $c) {
+    return $a / $b / $c;
+};
+
+$addOne = Partial\bind_right($add, 20, 10);
+
+echo sprintf("%F\n", $addOne(100)); // 100 / 20 / 10
+// outputs 0.5
 ```
 
 ### placeholder
