@@ -2,42 +2,58 @@
 
 namespace React\Partial;
 
-use React\Partial\Placeholder;
-
 function bind(/*$fn, $args...*/)
 {
     $args = func_get_args();
     $fn = array_shift($args);
 
     return function () use ($fn, $args) {
-        return call_user_func_array($fn, mergeParameters($args, func_get_args()));
+        return call_user_func_array($fn, mergeLeft($args, func_get_args()));
     };
 }
 
-/**
- * @return Partial
- */
+function bind_right(/*$fn, $args...*/)
+{
+    $args = func_get_args();
+    $fn = array_shift($args);
+
+    return function () use ($fn, $args) {
+        return call_user_func_array($fn, mergeRight($args, func_get_args()));
+    };
+}
+
+/** @return Placeholder */
 function …()
 {
     return Placeholder::create();
 }
 
-/**
- * @return Partial
- */
+/** @return Placeholder */
 function placeholder()
 {
     return …();
 }
 
 /** @internal */
-function mergeParameters(array $left, array $right)
+function mergeLeft(array $left, array $right)
 {
-    foreach ($left as $position => &$param) {
+    resolvePlaceholder($left, $right);
+    return array_merge($left, $right);
+}
+
+/** @internal */
+function mergeRight(array $left, array $right)
+{
+    resolvePlaceholder($left, $right);
+    return array_merge($right, $left);
+}
+
+/** @internal */
+function resolvePlaceholder(array &$parameters, array &$source)
+{
+    foreach ($parameters as $position => &$param) {
         if ($param instanceof Placeholder) {
-            $param = $param->resolve($right, $position);
+            $param = $param->resolve($source, $position);
         }
     }
-
-    return array_merge($left, $right);
 }

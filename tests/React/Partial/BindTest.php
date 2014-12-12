@@ -25,7 +25,6 @@ class BindTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(6, $addOneAndFive());
     }
 
-
     public function testBindWithPlaceholder()
     {
         $add = $this->createAddFunction();
