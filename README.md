@@ -111,7 +111,7 @@ $add = function ($a, $b) {
 
 $addOne = Partial\bind($add, 1);
 
-echo sprintf("%d\n", $addOne(5));
+echo sprintf("%d\n", $addOne(5));// 1 + 5
 // outputs 6
 ```
 
@@ -122,14 +122,14 @@ echo sprintf("%d\n", $addOne(5));
 
 use React\Partial;
 
-$div = function ($a, $b, $c) {
-    return $a / $b / $c;
+$div = function ($a, $b) {
+    return $a / $b;
 };
 
-$addOne = Partial\bind_right($add, 20, 10);
+$divBy20 = Partial\bind_right($div, 20);
 
-echo sprintf("%F\n", $addOne(100)); // 100 / 20 / 10
-// outputs 0.5
+echo sprintf("%F\n", $divBy20(100)); // 100 / 20
+// outputs 5
 ```
 
 ### placeholder
