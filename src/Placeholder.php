@@ -2,14 +2,22 @@
 
 namespace React\Partial;
 
+use InvalidArgumentException;
+
 final class Placeholder
 {
+    /**
+     * @var null|static
+     */
     private static $instance = null;
 
     private function __construct()
     {
     }
 
+    /**
+     * @return static
+     */
     public static function create()
     {
         if (self::$instance === null) {
@@ -19,14 +27,20 @@ final class Placeholder
         return self::$instance;
     }
 
-    public function resolve(array &$args, $position)
+    /**
+     * @param array $parameters
+     * @param int   $position
+     *
+     * @return mixed
+     */
+    public function resolve(array &$parameters, $position)
     {
-        if (count($args) === 0) {
-            throw new \InvalidArgumentException(
+        if (count($parameters) === 0) {
+            throw new InvalidArgumentException(
                 sprintf('Cannot resolve parameter placeholder at position %d. Parameter stack is empty.', $position)
             );
         }
 
-        return array_shift($args);
+        return array_shift($parameters);
     }
 }

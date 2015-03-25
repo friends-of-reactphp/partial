@@ -52,8 +52,8 @@ public function downloadFile($filename, $callback)
 
 public function processDownloadResult($filename, $contents)
 {
-    echo "The file $filename contained a shitload of stuff:\n";
-    echo $contents;
+    print "The file $filename contained a shitload of stuff:\n";
+    print $contents;
 }
 ```
 
@@ -111,8 +111,7 @@ $add = function ($a, $b) {
 
 $addOne = Partial\bind($add, 1);
 
-echo sprintf("%d\n", $addOne(5));
-// outputs 6
+print $addOne(5) . "\n"; // 1 + 5 = 6
 ```
 
 ### bind_right
@@ -122,14 +121,13 @@ echo sprintf("%d\n", $addOne(5));
 
 use React\Partial;
 
-$div = function ($a, $b, $c) {
-    return $a / $b / $c;
+$div = function ($a, $b) {
+    return $a / $b;
 };
 
-$addOne = Partial\bind_right($add, 20, 10);
+$divBy20 = Partial\bind_right($add, 20);
 
-echo sprintf("%F\n", $addOne(100)); // 100 / 20 / 10
-// outputs 0.5
+print $divBy20(100) . "\n"; // 100 / 20 = 5
 ```
 
 ### placeholder
