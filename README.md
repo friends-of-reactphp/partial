@@ -126,9 +126,9 @@ $div = function ($a, $b, $c) {
     return $a / $b / $c;
 };
 
-$addOne = Partial\bind_right($add, 20, 10);
+$divMore = Partial\bind_right($div, 20, 10);
 
-echo sprintf("%F\n", $addOne(100)); // 100 / 20 / 10
+echo sprintf("%F\n", $divMore(100)); // 100 / 20 / 10
 // outputs 0.5
 ```
 
