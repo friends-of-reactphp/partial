@@ -9,10 +9,5 @@
     "autoload": {
         "psr-0": { "React\\Partial": "src" },
         "files": ["src/React/Partial/functions.php"]
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.0-dev"
-        }
     }
 }
