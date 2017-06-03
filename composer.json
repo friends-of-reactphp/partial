@@ -7,7 +7,11 @@
         "php": ">=5.3.2"
     },
     "autoload": {
-        "psr-0": { "React\\Partial": "src" },
-        "files": ["src/React/Partial/functions.php"]
+        "psr-4": {
+            "React\\Partial\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
     }
 }
