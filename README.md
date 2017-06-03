@@ -37,8 +37,6 @@ that file download completes. This function however needs to know an
 additional piece of information: the filename.
 
 ```php
-<?php
-
 public function handleDownload($filename)
 {
     $this->downloadFile($filename, ...);
@@ -61,8 +59,6 @@ The conventional approach to this problem is to wrap everything in a closure
 like so:
 
 ```php
-<?php
-
 public function handleDownload($filename)
 {
     $this->downloadFile($filename, function ($contents) use ($filename) {
@@ -81,18 +77,13 @@ insert it to the left of the arguments list. The return value of `bind` is a
 new function which takes one `$content` argument.
 
 ```php
-<?php
-
-use React\Partial;
+use function React\Partial\bind;
 
 public function handleDownload($filename)
 {
-    $this->downloadFile($filename, Partial\bind([$this, 'processDownloadResult'], $filename));
+    $this->downloadFile($filename, bind([$this, 'processDownloadResult'], $filename));
 }
 ```
-
-This is way cleaner. Sure, it's still a bit ugly due to the weird `::` and
-`[$this, ...]` and so on, but it already helps quite a lot.
 
 Partialing is dependency injection for functions! How awesome is that?
 
@@ -101,15 +92,13 @@ Partialing is dependency injection for functions! How awesome is that?
 ### bind
 
 ```php
-<?php
-
-use React\Partial;
+use function React\Partial\bind;
 
 $add = function ($a, $b) {
     return $a + $b;
 };
 
-$addOne = Partial\bind($add, 1);
+$addOne = bind($add, 1);
 
 echo sprintf("%d\n", $addOne(5));
 // outputs 6
@@ -118,15 +107,13 @@ echo sprintf("%d\n", $addOne(5));
 ### bind_right
 
 ```php
-<?php
-
-use React\Partial;
+use function React\Partial\bind_right;
 
 $div = function ($a, $b, $c) {
     return $a / $b / $c;
 };
 
-$divMore = Partial\bind_right($div, 20, 10);
+$divMore = bind_right($div, 20, 10);
 
 echo sprintf("%F\n", $divMore(100)); // 100 / 20 / 10
 // outputs 0.5
@@ -152,11 +139,10 @@ character of a string.
  - Linux: `AltGr + .`
 
 ```php
-<?php
+use function React\Partial\bind;
+use function React\Partial\…;
 
-use React\Partial;
-
-$firstChar = Partial\bind('substr', Partial\…(), 0, 1);
+$firstChar = bind('substr', …(), 0, 1);
 $mapped = array_map($firstChar, array('foo', 'bar', 'baz'));
 
 var_dump($mapped);
