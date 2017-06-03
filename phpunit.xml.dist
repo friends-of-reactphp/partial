@@ -22,7 +22,9 @@
             <directory>./src/</directory>
         </whitelist>
     </filter>
-    <php>
-        <ini name="error_reporting" value="-1"/>
-    </php>
+
+    <logging>
+        <log type="coverage-text" target="php://stdout"/>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+    </logging>
 </phpunit>
