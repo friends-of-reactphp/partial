@@ -9,7 +9,6 @@ php:
 matrix:
   allow_failures:
     - php: nightly
-  fast_finish: true
 
 before_script:
   - composer install
