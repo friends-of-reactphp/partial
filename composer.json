@@ -4,10 +4,20 @@
     "keywords": ["partial", "functional-programming"],
     "license": "MIT",
     "require": {
-        "php": ">=5.3.2"
+        "php": ">=5.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
     },
     "autoload": {
-        "psr-0": { "React\\Partial": "src" },
-        "files": ["src/React/Partial/functions.php"]
+        "psr-4": {
+            "React\\Partial\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "scripts": {
+        "test": "phpunit"
     }
 }

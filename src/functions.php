@@ -2,33 +2,37 @@
 
 namespace React\Partial;
 
-function bind(/*$fn, $args...*/)
+/**
+ * @return callable
+ */
+function bind(callable $fn, ...$bound)
 {
-    $args = func_get_args();
-    $fn = array_shift($args);
-
-    return function () use ($fn, $args) {
-        return call_user_func_array($fn, mergeLeft($args, func_get_args()));
+    return function (...$args) use ($fn, $bound) {
+        return $fn(...mergeLeft($bound, $args));
     };
 }
 
-function bind_right(/*$fn, $args...*/)
+/**
+ * @return callable
+ */
+function bind_right(callable $fn, ...$bound)
 {
-    $args = func_get_args();
-    $fn = array_shift($args);
-
-    return function () use ($fn, $args) {
-        return call_user_func_array($fn, mergeRight($args, func_get_args()));
+    return function (...$args) use ($fn, $bound) {
+        return $fn(...mergeRight($bound, $args));
     };
 }
 
-/** @return Placeholder */
+/**
+ * @return Placeholder
+ **/
 function …()
 {
     return Placeholder::create();
 }
 
-/** @return Placeholder */
+/**
+ * @return Placeholder
+ **/
 function placeholder()
 {
     return …();
