@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+* 3.0.0 (2017-10-01)
+
+  * Modernize implementation (@shadowhand)
+
 * 2.0.2 (2014-12-12)
 
   * bind_right (@lstrojny)
