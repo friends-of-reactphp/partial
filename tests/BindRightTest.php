@@ -2,7 +2,9 @@
 
 namespace React\Partial;
 
-class BindRightTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class BindRightTest extends TestCase
 {
     public function testBindWithNoArgs()
     {

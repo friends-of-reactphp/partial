@@ -3,8 +3,9 @@
 namespace React\Partial;
 
 use React\Partial\Util as Partial;
+use PHPUnit\Framework\TestCase;
 
-class UtilTest extends \PHPUnit_Framework_TestCase
+class UtilTest extends TestCase
 {
     public function testBind()
     {
